@@ -2,16 +2,24 @@ package com.kaushik.models;
 
 import java.util.UUID;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Customer extends User {
+    @Id
     private String customerId = UUID.randomUUID().toString();
-    private Account account;
+    private String accountNumber;
 
-    public Customer(String name, String email, String password, String address, Account account) {
+    public Customer(String name, String email, String password, String address, String accountNumber) {
         super(name, email, password, address);
-        this.account = account;
+        this.accountNumber = accountNumber;
     }
 
     public void display() {

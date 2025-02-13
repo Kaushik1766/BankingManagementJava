@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -20,7 +19,8 @@ public class Account {
     private double pendingLoan;
     private String customerId;
 
-    public Account() {
+    public Account(String customerId) {
+        this.customerId = customerId;
         this.balance = 0;
         this.pendingLoan = 0;
     }

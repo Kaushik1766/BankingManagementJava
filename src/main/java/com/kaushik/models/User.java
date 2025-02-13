@@ -3,9 +3,11 @@ package com.kaushik.models;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 abstract class User {
     private String name;
     @Column(unique = true)
