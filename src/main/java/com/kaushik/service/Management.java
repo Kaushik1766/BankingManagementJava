@@ -49,11 +49,49 @@ public class Management {
         String email = sc.nextLine();
         String pasword = sc.nextLine();
         Employee employee = employeeDB.findByEmail(email);
-
+        try {
+            if (employee.getPassword().equals(pasword)) {
+                this.employee = employee;
+            } else {
+                throw new Unauthorized("Unauthorized");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
+    void customerLogin() {
+        String email = sc.nextLine();
+        String pasword = sc.nextLine();
+        Customer customer = customerDB.findByEmail(email);
+        try {
+            if (customer.getPassword().equals(pasword)) {
+                this.customer = customer;
+            } else {
+                throw new Unauthorized("Unauthorized");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    void sendMoney() {
+        double amount = sc.nextDouble();
+    }
     // void addMoney(){
     // double amount = sc.nextDouble();
     // accountDB.save
     // }
+}
+
+final class InsufficientBalance extends RuntimeException {
+    InsufficientBalance(String message) {
+        super(message);
+    }
+}
+
+final class Unauthorized extends RuntimeException {
+    Unauthorized(String message) {
+        super(message);
+    }
 }
