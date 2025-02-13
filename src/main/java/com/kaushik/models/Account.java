@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -17,6 +18,12 @@ public class Account {
     private String accountNumber = UUID.randomUUID().toString();
     private double balance;
     private double pendingLoan;
+    private String customerId;
+
+    public Account() {
+        this.balance = 0;
+        this.pendingLoan = 0;
+    }
 
     public void display() {
         System.out.println("Account Number: " + accountNumber);

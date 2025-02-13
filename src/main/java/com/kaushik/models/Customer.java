@@ -2,14 +2,10 @@ package com.kaushik.models;
 
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Getter;
 
 @Getter
-@Entity
 public class Customer extends User {
-    @Id
     private String customerId = UUID.randomUUID().toString();
     private Account account;
 
