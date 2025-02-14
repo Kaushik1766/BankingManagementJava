@@ -20,13 +20,9 @@ import lombok.Getter;
 @Getter
 @Service
 public class Management {
-    @Autowired
     private AccountDB accountDB;
-    @Autowired
     private EmployeeDB employeeDB;
-    @Autowired
     private CustomerDB customerDB;
-    @Autowired
     private TransactionDB transactionDB;
     private Scanner sc;
     private Employee employee;
